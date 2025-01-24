@@ -5,15 +5,24 @@ import { useEffect, useState } from "react";
 export type Theme = "light" | "dark" | "sunset" | "forest" | "ocean" | "system";
 
 export function useThemeToggle() {
-    const initialTheme = (localStorage.getItem("theme") as Theme) || "system";
-    const [theme, setTheme] = useState<Theme>(initialTheme);
-    const [systemTheme, setSystemTheme] = useState<"light" | "dark">(
-        window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"
-    );
+    const [theme, setTheme] = useState<Theme>(() => {
+        if (typeof window !== 'undefined') {
+            return (localStorage.getItem("theme") as Theme) || "system";
+        }
+        return "system";
+    });
+    
+    const [systemTheme, setSystemTheme] = useState<"light" | "dark">(() => {
+        if (typeof window !== 'undefined') {
+            return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        }
+        return "light";
+    });
 
-    // Watching for system theme changes 👀
     useEffect(() => {
         const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)")
+        setSystemTheme(mediaQuery.matches ? "dark" : "light")
+        
         const handler = (e: MediaQueryListEvent) => {
             setSystemTheme(e.matches ? "dark" : "light")
         }
@@ -22,7 +31,6 @@ export function useThemeToggle() {
         return () => mediaQuery.removeEventListener("change", handler)
     }, [])
 
-    // Applying theme changes 🎨
     useEffect(() => {
         const currentTheme = theme
         const effectiveTheme =
@@ -30,10 +38,10 @@ export function useThemeToggle() {
 
         document.documentElement.classList.remove("light", "dark", "sunset", "forest", "ocean")
         document.documentElement.classList.add(effectiveTheme)
-        localStorage.setItem("theme", currentTheme)
+        if (typeof window !== 'undefined') {
+            localStorage.setItem("theme", currentTheme)
+        }
     }, [theme, systemTheme])
-
-
 
     return { theme, setTheme };
 }

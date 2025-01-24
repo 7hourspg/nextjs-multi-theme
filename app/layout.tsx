@@ -23,7 +23,25 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              try {
+                let theme = localStorage.getItem('theme') || 'system';
+                let systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+                let effectiveTheme = theme === 'system' ? systemTheme : theme;
+                
+                document.documentElement.classList.remove('light', 'dark', 'sunset', 'forest', 'ocean');
+                document.documentElement.classList.add(effectiveTheme);
+              } catch (e) {
+                console.error('Theme initialization failed:', e);
+              }
+            `,
+          }}
+        />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
