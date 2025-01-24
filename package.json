@@ -1,0 +1,56 @@
+{
+  "name": "nextjs-multi-theme",
+  "version": "0.1.0",
+  "private": true,
+  "description": "A minimal, yet powerful demonstration showcasing seamless theme switching with Next.js, Tailwind CSS, and Radix UI",
+  "author": {
+    "name": "7hours",
+    "email": "7hours@7hours.dev",
+    "url": "https://7hours.dev"
+  },
+  "license": "MIT",
+  "homepage": "https://nextjs-multi-theme.vercel.app/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/7hourspg/nextjs-multi-theme"
+  },
+  "bugs": {
+    "url": "https://github.com/7hourspg/nextjs-multi-theme/issues"
+  },
+  "keywords": [
+    "next.js",
+    "react",
+    "tailwindcss",
+    "themes",
+    "dark-mode",
+    "radix-ui",
+    "typescript"
+  ],
+  "scripts": {
+    "dev": "next dev --turbopack",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@radix-ui/react-dialog": "^1.1.5",
+    "@radix-ui/react-slot": "^1.1.1",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "lucide-react": "^0.474.0",
+    "next": "15.1.6",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "tailwind-merge": "^2.6.0",
+    "tailwindcss-animate": "^1.0.7"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "postcss": "^8",
+    "tailwindcss": "^3.4.1",
+    "typescript": "^5"
+  },
+  "packageManager": "yarn@1.22.22+sha512.a6b2f7906b721bba3d67d4aff083df04dad64c399707841b7acf00f6b133b7ac24255f2652fa22ae3534329dc6180534e98d17432037ff6fd140556e2bb3137e"
+}
