@@ -6,7 +6,7 @@ A minimal, yet powerful demonstration showcasing seamless theme switching with N
 
 - 🎨 Multiple beautiful themes (Light, Dark, Sunset, Forest, Ocean)
 - 🌓 System theme detection
-- ⚡️ Built with Next.js 14 and Tailwind CSS
+- ⚡️ Built with Next.js 15 and Tailwind CSS
 - 🧩 Powered by shadcn/ui components
 
 ## Getting Started
