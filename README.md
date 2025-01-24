@@ -31,7 +31,7 @@ yarn dev
 
 ## Live Demo
 
-[https://nextjs-multi-theme.vercel.app/](https://nextjs-multi-theme.vercel.app/)
+[https://nextjs-multi-theme-alpha.vercel.app/](https://nextjs-multi-theme-alpha.vercel.app/)
 
 ---
 

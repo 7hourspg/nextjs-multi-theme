@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     title: "Next.js Multi-Theme Demo",
     description: "A minimal, yet powerful demonstration showcasing seamless theme switching with Next.js, Tailwind CSS, and Radix UI",
     type: "website",
-    url: "https://nextjs-multi-theme.vercel.app/",
+    url: "https://nextjs-multi-theme-alpha.vercel.app/",
   },
   twitter: {
     card: "summary_large_image",
